@@ -14,9 +14,16 @@ public class OrganizationValidator
         if (org.OrgName.Length < 3 || org.OrgName.Length > 255)
             return ValidationResult.Fail("Organization Name must be between 3 and 255 characters.", nameof(Organization.OrgName));
 
-        // Email: Format check if provided
+        // Address: Max 255 chars
+        if (!string.IsNullOrEmpty(org.Address) && org.Address.Length > 255)
+            return ValidationResult.Fail("Address cannot exceed 255 characters.", nameof(Organization.Address));
+
+        // Email: Max 255 chars, Format check if provided
         if (!string.IsNullOrEmpty(org.Email))
         {
+             if (org.Email.Length > 255)
+                return ValidationResult.Fail("Email cannot exceed 255 characters.", nameof(Organization.Email));
+
              // Simple regex for email
              var emailRegex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$");
              if (!emailRegex.IsMatch(org.Email))

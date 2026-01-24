@@ -71,18 +71,22 @@ partial class OrganizationForm
         this.txtOrgName.Location = new System.Drawing.Point(txtX, startY - 3);
         this.txtOrgName.Name = "txtOrgName";
         this.txtOrgName.Size = new System.Drawing.Size(txtWidth, 23);
+        this.txtOrgName.MaxLength = 300;
 
         this.txtAddress.Location = new System.Drawing.Point(txtX, startY + gapY - 3);
         this.txtAddress.Name = "txtAddress";
         this.txtAddress.Size = new System.Drawing.Size(txtWidth, 23);
+        this.txtAddress.MaxLength = 300;
 
         this.txtPhone.Location = new System.Drawing.Point(txtX, startY + gapY * 2 - 3);
         this.txtPhone.Name = "txtPhone";
         this.txtPhone.Size = new System.Drawing.Size(txtWidth, 23);
+        this.txtPhone.MaxLength = 15;
 
         this.txtEmail.Location = new System.Drawing.Point(txtX, startY + gapY * 3 - 3);
         this.txtEmail.Name = "txtEmail";
         this.txtEmail.Size = new System.Drawing.Size(txtWidth, 23);
+        this.txtEmail.MaxLength = 300;
 
         // Buttons
         int btnY = startY + gapY * 4 + 10;

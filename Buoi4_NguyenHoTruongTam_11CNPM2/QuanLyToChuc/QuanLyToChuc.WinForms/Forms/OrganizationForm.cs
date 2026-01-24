@@ -11,12 +11,20 @@ public partial class OrganizationForm : Form
     private readonly OrganizationValidator _validator;
     private int? _savedOrgId = null; // Changed to nullable
     private string _savedOrgName = string.Empty;
+    private readonly Form? _parentForm; // Store parent form reference
 
-    public OrganizationForm()
+    // Default constructor for direct run or when no parent
+    public OrganizationForm() : this(null)
+    {
+    }
+
+    // Constructor accepting parent form
+    public OrganizationForm(Form? parentForm)
     {
         InitializeComponent();
         _repository = new OrganizationRepository();
         _validator = new OrganizationValidator();
+        _parentForm = parentForm;
         
         // Initial state
         btnDirector.Enabled = false;
@@ -82,6 +90,7 @@ public partial class OrganizationForm : Form
     private void btnBack_Click(object sender, EventArgs e)
     {
         this.Close();
+        _parentForm?.Show(); // Show parent form if it exists
     }
 
     private void btnDirector_Click(object sender, EventArgs e)

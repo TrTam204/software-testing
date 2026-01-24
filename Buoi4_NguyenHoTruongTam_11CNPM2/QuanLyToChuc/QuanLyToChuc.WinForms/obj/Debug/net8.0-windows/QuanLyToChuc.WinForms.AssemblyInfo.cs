@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("QuanLyToChuc.WinForms")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8954e956986f743e4eead98c58c2f8886bd2fb16")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e17c9b56bcb768acaa4550da4bd181f530f6409f")]
 [assembly: System.Reflection.AssemblyProductAttribute("QuanLyToChuc.WinForms")]
 [assembly: System.Reflection.AssemblyTitleAttribute("QuanLyToChuc.WinForms")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
