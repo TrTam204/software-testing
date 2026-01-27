@@ -20,10 +20,6 @@ public class RegisterForm extends JFrame {
     private JRadioButton rbNam, rbNu, rbKhac;
     private JCheckBox chkAgree;
 
-    // DAO
-    @SuppressWarnings("unused")
-    private final CustomerDAO dao = new CustomerDAO();
-
     public RegisterForm() {
         // Look & feel nhẹ nhàng hơn (giống form hiện đại)
         try { UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel"); } catch (Exception ignored) {}
@@ -182,7 +178,7 @@ public class RegisterForm extends JFrame {
 
             Customer c = new Customer(maKH, hoTen, email, sdt, diaChi, mk, ngaySinh, gioiTinh);
 
-            // Insert DB (DAO bạn đã có)
+            // Insert DB - dùng static method
             CustomerDAO.insert(c);
 
             JOptionPane.showMessageDialog(this, "Đăng ký tài khoản thành công!", "OK", JOptionPane.INFORMATION_MESSAGE);
