@@ -1,0 +1,222 @@
+﻿@{
+    Layout = null; // QUAN TRỌNG: bỏ navbar/layout mặc định để giống modal
+    var errs = ViewBag.Errors as List<string>;
+}
+
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Add Job Title</title>
+
+    <style>
+        :root{
+            --border:#e9eff6;
+            --text:#2b3a55;
+            --muted:#7b8aa5;
+            --bg:#f3f6fb;
+            --green:#8cc63f;
+            --green-2:#a8d36b;
+        }
+        body{
+            margin:0;
+            background:var(--bg);
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            color:var(--text);
+        }
+
+        /* Modal shell */
+        .modal-wrap{
+            width:min(900px, 92vw);
+            margin: 20px auto;
+            background:#fff;
+            border-radius:12px;
+            box-shadow: 0 12px 35px rgba(25,42,70,.12);
+            overflow:hidden;
+        }
+
+        .modal-header{
+            padding:16px 18px;
+            border-bottom:1px solid var(--border);
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+        }
+        .modal-title{
+            font-size:18px;
+            font-weight:700;
+            margin:0;
+        }
+        .btn-close{
+            width:30px;height:30px;
+            border-radius:8px;
+            border:1px solid var(--border);
+            background:#fff;
+            cursor:pointer;
+            display:grid;
+            place-items:center;
+            color:var(--muted);
+            font-size:18px;
+            line-height:1;
+        }
+
+        .modal-body{ padding:18px; }
+
+        /* Fields */
+        .field{ margin-bottom:16px; }
+        .label{
+            display:block;
+            font-size:13px;
+            font-weight:700;
+            color:#5a6b86;
+            margin-bottom:6px;
+        }
+        .req{ color:#e53935; }
+
+        .input, .textarea, .file{
+            width:100%;
+            border:1px solid var(--border);
+            border-radius:10px;
+            padding:12px 12px;
+            font-size:14px;
+            outline:none;
+            background:#fff;
+            transition: box-shadow .15s ease, border-color .15s ease;
+        }
+        .textarea{
+            min-height:95px;
+            resize:vertical;
+        }
+        .input:focus, .textarea:focus, .file:focus{
+            border-color:var(--green-2);
+            box-shadow: 0 0 0 4px rgba(168,211,107,.22);
+        }
+
+        .note-line{
+            padding:14px 18px;
+            border-top:1px solid var(--border);
+            color:var(--muted);
+            font-size:13px;
+        }
+
+        /* Footer like screenshot */
+        .modal-footer{
+            padding:14px 18px;
+            border-top:1px solid var(--border);
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:12px;
+        }
+        .required{
+            color:var(--muted);
+            font-size:12px;
+        }
+        .actions{ display:flex; gap:12px; }
+
+        .btn{
+            height:38px;
+            min-width:120px;
+            padding:0 18px;
+            border-radius:999px;
+            cursor:pointer;
+            font-weight:700;
+            font-size:14px;
+            border:1px solid transparent;
+        }
+        .btn-cancel{
+            background:#fff;
+            border-color:var(--green-2);
+            color:#6aa531;
+        }
+        .btn-save{
+            background:var(--green);
+            border-color:var(--green);
+            color:#fff;
+            box-shadow: 0 10px 25px rgba(140,198,63,.25);
+        }
+
+        /* Alerts */
+        .alert{
+            margin: 14px 18px 0 18px;
+            padding:10px 12px;
+            border-radius:10px;
+            font-size:13px;
+        }
+        .alert-error{
+            background:#fff2f2;
+            border:1px solid #ffd2d2;
+            color:#c62828;
+        }
+        .alert-ok{
+            background:#f3fff1;
+            border:1px solid #d7f4cf;
+            color:#2e7d32;
+        }
+        ul{ margin:6px 0 0 18px; }
+    </style>
+</head>
+
+<body>
+<div class="modal-wrap">
+    <div class="modal-header">
+        <h2 class="modal-title">Add Job Title</h2>
+        <button class="btn-close" type="button" onclick="window.location.href='/'">×</button>
+    </div>
+
+    @if (errs != null && errs.Count > 0)
+    {
+        <div class="alert alert-error">
+            <b>Validation error</b>
+            <ul>
+                @foreach (var e in errs) { <li>@e</li> }
+            </ul>
+        </div>
+    }
+
+    @if (ViewBag.Ok != null)
+    {
+        <div class="alert alert-ok">@ViewBag.Ok</div>
+    }
+
+    <form method="post" enctype="multipart/form-data">
+        <div class="modal-body">
+
+            <div class="field">
+                <label class="label">Job Title<span class="req">*</span></label>
+                <input class="input" name="title" />
+            </div>
+
+            <div class="field">
+                <label class="label">Description</label>
+                <textarea class="textarea" name="description" placeholder="Type description here"></textarea>
+            </div>
+
+            <div class="field">
+                <label class="label">Job Specification</label>
+                <input class="file" type="file" name="jobSpec" />
+            </div>
+
+            <div class="field">
+                <label class="label">Note</label>
+                <textarea class="textarea" name="note" placeholder="Type note here"></textarea>
+            </div>
+
+        </div>
+
+        <div class="note-line">
+            This job title will be added under <b>Organization</b>
+        </div>
+
+        <div class="modal-footer">
+            <div class="required"><span class="req">*</span> Required</div>
+            <div class="actions">
+                <button class="btn btn-cancel" type="reset">Cancel</button>
+                <button class="btn btn-save" type="submit">Save</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

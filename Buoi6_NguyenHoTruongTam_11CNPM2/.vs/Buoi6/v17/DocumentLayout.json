@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\A.monhoc\\software-testing\\Buoi6_NguyenHoTruongTam_11CNPM2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4ABDF093-7DBB-400C-B71F-8C35EF22FC50}|Buoi6.Web\\Buoi6.Web.csproj|d:\\a.monhoc\\software-testing\\buoi6_nguyenhotruongtam_11cnpm2\\buoi6.web\\views\\bai4\\addjobtitle.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4ABDF093-7DBB-400C-B71F-8C35EF22FC50}|Buoi6.Web\\Buoi6.Web.csproj|solutionrelative:buoi6.web\\views\\bai4\\addjobtitle.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AddJobTitle.cshtml",
+              "DocumentMoniker": "D:\\A.monhoc\\software-testing\\Buoi6_NguyenHoTruongTam_11CNPM2\\Buoi6.Web\\Views\\Bai4\\AddJobTitle.cshtml",
+              "RelativeDocumentMoniker": "Buoi6.Web\\Views\\Bai4\\AddJobTitle.cshtml",
+              "ToolTip": "D:\\A.monhoc\\software-testing\\Buoi6_NguyenHoTruongTam_11CNPM2\\Buoi6.Web\\Views\\Bai4\\AddJobTitle.cshtml",
+              "RelativeToolTip": "Buoi6.Web\\Views\\Bai4\\AddJobTitle.cshtml",
+              "ViewState": "AQIAAN4AAAAAAAAAAADwv+oAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-03T08:08:11.128Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

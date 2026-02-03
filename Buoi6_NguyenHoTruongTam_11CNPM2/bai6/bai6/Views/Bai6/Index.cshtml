@@ -1,0 +1,388 @@
+﻿@using bai6.Controllers
+@{
+    Layout = null;
+    var users = ViewBag.Users as List<Bai6Controller.UserRow> ?? new();
+    var edit = ViewBag.EditUser as Bai6Controller.UserRow;
+    var errs = ViewBag.Errors as List<string>;
+    var u0 = edit?.Username ?? "";
+    var f0 = edit?.Fullname ?? "";
+    var e0 = edit?.Email ?? "";
+}
+
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>User Management</title>
+
+    <style>
+        :root{
+            --bg:#0f172a;
+            --bg2:#111b33;
+            --panel:#0b1228;
+            --panel2:#0d1630;
+            --line:rgba(255,255,255,.08);
+            --text:#e5e7eb;
+            --muted:rgba(255,255,255,.55);
+
+            --blue:#3b82f6;
+            --green:#22c55e;
+            --red:#ef4444;
+            --yellow:#eab308;
+        }
+        *{ box-sizing:border-box; }
+        body{
+            margin:0;
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            background: linear-gradient(180deg, var(--bg), var(--bg2));
+            color:var(--text);
+        }
+
+        /* Top bar */
+        .topbar{
+            height:54px;
+            display:flex;
+            align-items:center;
+            padding:0 16px;
+            border-bottom:1px solid var(--line);
+            background:rgba(0,0,0,.15);
+        }
+        .brand{
+            font-weight:800;
+            letter-spacing:.4px;
+            display:flex;
+            align-items:center;
+            gap:10px;
+        }
+        .brand-dot{ width:10px;height:10px;border-radius:999px;background:var(--green); }
+        .search{
+            margin-left:22px;
+            flex:1;
+            max-width:520px;
+        }
+        .search input{
+            width:100%;
+            background:rgba(255,255,255,.06);
+            border:1px solid var(--line);
+            color:var(--text);
+            padding:10px 12px;
+            border-radius:999px;
+            outline:none;
+        }
+        .top-right{
+            margin-left:auto;
+            display:flex;
+            align-items:center;
+            gap:10px;
+            color:var(--muted);
+            font-weight:600;
+        }
+        .avatar{
+            width:28px;height:28px;border-radius:999px;
+            background:rgba(255,255,255,.10);
+            border:1px solid var(--line);
+        }
+
+        /* Layout */
+        .layout{
+            display:flex;
+            min-height: calc(100vh - 54px);
+        }
+        .sidebar{
+            width:240px;
+            border-right:1px solid var(--line);
+            padding:14px 10px;
+            background: rgba(0,0,0,.10);
+        }
+        .nav-title{
+            font-size:12px;
+            color:var(--muted);
+            padding:8px 10px;
+        }
+        .nav a{
+            display:flex;
+            align-items:center;
+            gap:10px;
+            padding:10px 12px;
+            border-radius:10px;
+            text-decoration:none;
+            color:rgba(255,255,255,.78);
+            font-weight:650;
+        }
+        .nav a.active{
+            background:rgba(255,255,255,.08);
+            border:1px solid var(--line);
+        }
+        .ico{
+            width:8px;height:8px;border-radius:999px;
+            background:rgba(255,255,255,.35);
+        }
+
+        .content{
+            flex:1;
+            padding:18px;
+        }
+
+        .panel{
+            background: rgba(0,0,0,.18);
+            border:1px solid var(--line);
+            border-radius:14px;
+            overflow:hidden;
+            max-width: 980px;
+        }
+
+        /* Tabs */
+        .tabs{
+            display:flex;
+            gap:14px;
+            padding:14px 16px 0 16px;
+        }
+        .tab{
+            font-weight:800;
+            font-size:13px;
+            color:rgba(255,255,255,.55);
+            padding:10px 0;
+            border-bottom:2px solid transparent;
+        }
+        .tab.active{
+            color:#fff;
+            border-bottom-color:#fff;
+        }
+
+        .body{
+            padding: 16px;
+        }
+
+        /* Form grid */
+        .grid{
+            display:grid;
+            grid-template-columns: 1fr 1fr;
+            gap:18px 26px;
+            margin-top:10px;
+        }
+        .field label{
+            display:block;
+            font-size:12px;
+            color:rgba(255,255,255,.65);
+            margin-bottom:6px;
+            font-weight:750;
+        }
+        .field input{
+            width:100%;
+            background:rgba(255,255,255,.06);
+            border:1px solid var(--line);
+            color:#fff;
+            padding:11px 12px;
+            border-radius:10px;
+            outline:none;
+        }
+
+        .buttons{
+            display:flex;
+            gap:10px;
+            margin-top:16px;
+        }
+        .btn{
+            height:34px;
+            padding:0 14px;
+            border-radius:6px;
+            border:1px solid transparent;
+            cursor:pointer;
+            font-weight:800;
+            color:#fff;
+            background:transparent;
+        }
+        .btn.blue{ border-color:rgba(59,130,246,.6); color:var(--blue); }
+        .btn.green{ border-color:rgba(34,197,94,.6); color:var(--green); }
+        .btn.red{ border-color:rgba(239,68,68,.6); color:var(--red); }
+        .btn.yellow{ border-color:rgba(234,179,8,.6); color:var(--yellow); }
+
+        .btn.blue:hover{ background:rgba(59,130,246,.12); }
+        .btn.green:hover{ background:rgba(34,197,94,.12); }
+        .btn.red:hover{ background:rgba(239,68,68,.12); }
+        .btn.yellow:hover{ background:rgba(234,179,8,.12); }
+
+        .alert{
+            margin-top:8px;
+            padding:10px 12px;
+            border-radius:10px;
+            border:1px solid rgba(255,255,255,.12);
+            background:rgba(255,255,255,.06);
+        }
+        .alert.error{ border-color:rgba(239,68,68,.35); }
+        .alert ul{ margin:6px 0 0 18px; color:rgba(255,255,255,.75); }
+
+        /* List tab */
+        .table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:12px;
+        }
+        .table th, .table td{
+            border-bottom:1px solid var(--line);
+            padding:10px 8px;
+            text-align:left;
+            font-size:13px;
+        }
+        .table th{ color:rgba(255,255,255,.65); font-weight:800; }
+        .link{
+            color:#93c5fd;
+            text-decoration:none;
+            font-weight:800;
+        }
+
+        .footer{
+            padding: 22px 0 0 0;
+            color:rgba(255,255,255,.35);
+            font-size:12px;
+            text-align:center;
+        }
+
+        /* simple tabs using :target */
+        .section{ display:none; }
+        #edition:target ~ .wrap .edition { display:block; }
+        #list:target ~ .wrap .list { display:block; }
+        /* default show edition */
+        .wrap .edition { display:block; }
+
+        /* make tabs look active depending on target */
+        #list:target ~ .wrap .tabs a.tab-ed{ color:rgba(255,255,255,.55); border-bottom-color:transparent; }
+        #list:target ~ .wrap .tabs a.tab-li{ color:#fff; border-bottom-color:#fff; }
+        #edition:target ~ .wrap .tabs a.tab-ed{ color:#fff; border-bottom-color:#fff; }
+    </style>
+</head>
+
+<body>
+    <div class="topbar">
+        <div class="brand"><span class="brand-dot"></span> NGHIENPHIM</div>
+        <div class="search"><input placeholder="Tìm kiếm phim..." /></div>
+        <div class="top-right">
+            <span>⚙️</span><span>🔔</span>
+            <div class="avatar"></div>
+        </div>
+    </div>
+
+    <!-- anchors for :target tabs -->
+    <div id="edition" class="section"></div>
+    <div id="list" class="section"></div>
+
+    <div class="layout wrap">
+        <aside class="sidebar">
+            <div class="nav-title">Management</div>
+            <nav class="nav">
+                <a href="#" class="active"><span class="ico"></span> Home</a>
+                <a href="#"><span class="ico"></span> Video Management</a>
+                <a href="#edition" class="active"><span class="ico"></span> User Management</a>
+                <a href="#"><span class="ico"></span> Report Management</a>
+                <a href="#"><span class="ico"></span> Logout</a>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <div class="panel">
+                <div class="tabs">
+                    <a class="tab tab-ed active" href="#edition">USER EDITION</a>
+                    <a class="tab tab-li" href="#list">USER LIST</a>
+                </div>
+
+                <div class="body edition">
+                    @if (errs != null && errs.Count > 0)
+                    {
+                        <div class="alert error">
+                            <b>Validation error</b>
+                            <ul>@foreach (var e in errs) { <li>@e</li> }</ul>
+                        </div>
+                    }
+
+                    <form method="post" id="formEdition">
+                        <div class="grid">
+                            <div class="field">
+                                <label>Username</label>
+                                <input name="username" value="@u0" />
+                            </div>
+
+                            <div class="field">
+                                <label>Password</label>
+                                <input name="password" value="" />
+                            </div>
+
+                            <div class="field">
+                                <label>Fullname</label>
+                                <input name="fullname" value="@f0" />
+                            </div>
+
+                            <div class="field">
+                                <label>Email</label>
+                                <input name="email" value="@e0" />
+                            </div>
+                        </div>
+
+                        <div class="buttons">
+                            <button class="btn blue" formaction="/Bai6/Create" type="submit">Create</button>
+                            <button class="btn green" formaction="/Bai6/Update" type="submit">Update</button>
+                            <button class="btn red" formaction="/Bai6/Delete" type="submit"
+                                    onclick="return confirm('Bạn chắc chắn muốn xóa user này?')">Delete</button>
+                            <button class="btn yellow" type="reset">Reset</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="body list" style="display:none;">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Fullname</th>
+                                <th>Email</th>
+                                <th>Edit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @foreach (var u in users)
+                        {
+                            <tr>
+                                <td>@u.Username</td>
+                                <td>@u.Fullname</td>
+                                <td>@u.Email</td>
+                                <td><a class="link" href="/Bai6/Index?username=@u.Username#edition">Edit</a></td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="footer">Copyright © 2022 NGHIENPHIM. All rights reserved.</div>
+        </main>
+    </div>
+
+    <script>
+        // show correct tab content for :target
+        (function () {
+            const hash = window.location.hash || "#edition";
+            const edition = document.querySelector(".edition");
+            const list = document.querySelector(".list");
+            const tabEd = document.querySelector(".tab-ed");
+            const tabLi = document.querySelector(".tab-li");
+
+            function setTab(h) {
+                if (h === "#list") {
+                    edition.style.display = "none";
+                    list.style.display = "block";
+                    tabEd.classList.remove("active");
+                    tabLi.classList.add("active");
+                } else {
+                    list.style.display = "none";
+                    edition.style.display = "block";
+                    tabLi.classList.remove("active");
+                    tabEd.classList.add("active");
+                }
+            }
+
+            setTab(hash);
+            window.addEventListener("hashchange", () => setTab(window.location.hash));
+        })();
+    </script>
+</body>
+</html>

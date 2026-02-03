@@ -1,0 +1,317 @@
+﻿@{
+    Layout = null; // bỏ layout mặc định để tự dựng UI giống OrangeHRM
+    var errs = ViewBag.Errors as List<string>;
+}
+
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin - Add Organization Unit</title>
+
+    <style>
+        :root{
+            --orange:#f57c00;
+            --bg:#f4f5f7;
+            --card:#ffffff;
+            --border:#e8eef6;
+            --text:#2b3a55;
+            --muted:#7b8aa5;
+            --green:#8cc63f;
+            --green2:#a8d36b;
+        }
+        *{ box-sizing:border-box; }
+        body{
+            margin:0;
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            background:var(--bg);
+            color:var(--text);
+        }
+
+        /* Top bar */
+        .topbar{
+            height:56px;
+            background:linear-gradient(0deg, #ff8a00, var(--orange));
+            display:flex;
+            align-items:center;
+            padding:0 18px;
+            color:#fff;
+            font-weight:700;
+        }
+        .topbar .right{
+            margin-left:auto;
+            display:flex;
+            align-items:center;
+            gap:10px;
+            font-weight:600;
+            opacity:.95;
+        }
+        .avatar{
+            width:30px;height:30px;border-radius:999px;
+            background:rgba(255,255,255,.25);
+            border:1px solid rgba(255,255,255,.35);
+        }
+
+        /* Layout */
+        .layout{
+            display:flex;
+            min-height: calc(100vh - 56px);
+        }
+
+        /* Sidebar */
+        .sidebar{
+            width:240px;
+            background:#fff;
+            border-right:1px solid var(--border);
+            padding:14px 12px;
+        }
+        .brand{
+            display:flex;
+            align-items:center;
+            gap:10px;
+            padding:10px 10px 16px 10px;
+            border-bottom:1px solid var(--border);
+            margin-bottom:10px;
+        }
+        .logo-dot{
+            width:10px;height:10px;border-radius:999px;background:var(--orange);
+        }
+        .brand b{ font-size:15px; }
+        .menu{
+            display:flex;
+            flex-direction:column;
+            gap:6px;
+            padding:6px;
+        }
+        .menu a{
+            text-decoration:none;
+            color:#465a78;
+            padding:10px 12px;
+            border-radius:10px;
+            display:flex;
+            align-items:center;
+            gap:10px;
+            font-weight:600;
+        }
+        .menu a.active{
+            background:rgba(245,124,0,.12);
+            color:#c65f00;
+        }
+        .dot{
+            width:8px;height:8px;border-radius:999px;background:#cbd5e1;
+        }
+        .menu a.active .dot{ background:var(--orange); }
+
+        /* Content */
+        .content{
+            flex:1;
+            padding:18px 18px 26px 18px;
+        }
+
+        .card{
+            background:var(--card);
+            border:1px solid var(--border);
+            border-radius:14px;
+            box-shadow: 0 10px 28px rgba(25,42,70,.08);
+            overflow:hidden;
+            max-width: 980px;
+        }
+
+        .card-head{
+            padding:16px 18px;
+            border-bottom:1px solid var(--border);
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+        }
+        .card-title{
+            margin:0;
+            font-size:18px;
+            font-weight:800;
+        }
+
+        .card-body{ padding:18px; }
+
+        .field{ margin-bottom:16px; }
+        .label{
+            display:block;
+            font-size:12px;
+            font-weight:800;
+            color:#5a6b86;
+            margin-bottom:6px;
+        }
+        .req{ color:#e53935; }
+
+        .input, .textarea{
+            width:100%;
+            border:1px solid var(--border);
+            border-radius:10px;
+            padding:12px 12px;
+            font-size:14px;
+            outline:none;
+            background:#fff;
+            transition: border-color .15s ease, box-shadow .15s ease;
+        }
+        .textarea{
+            min-height:92px;
+            resize:vertical;
+        }
+        .input:focus, .textarea:focus{
+            border-color:var(--green2);
+            box-shadow: 0 0 0 4px rgba(168,211,107,.22);
+        }
+
+        .hint-line{
+            padding:14px 18px;
+            border-top:1px solid var(--border);
+            color:var(--muted);
+            font-size:13px;
+        }
+
+        .card-foot{
+            padding:14px 18px;
+            border-top:1px solid var(--border);
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:12px;
+        }
+        .required{
+            font-size:12px;
+            color:var(--muted);
+        }
+        .actions{
+            display:flex;
+            gap:12px;
+        }
+        .btn{
+            height:38px;
+            min-width:120px;
+            border-radius:999px;
+            padding:0 18px;
+            cursor:pointer;
+            font-weight:800;
+            font-size:14px;
+            border:1px solid transparent;
+        }
+        .btn-cancel{
+            background:#fff;
+            border-color:var(--green2);
+            color:#6aa531;
+        }
+        .btn-save{
+            background:var(--green);
+            border-color:var(--green);
+            color:#fff;
+            box-shadow: 0 10px 25px rgba(140,198,63,.22);
+        }
+
+        /* Alerts */
+        .alert{
+            margin: 14px 18px 0 18px;
+            padding:10px 12px;
+            border-radius:10px;
+            font-size:13px;
+        }
+        .alert-error{
+            background:#fff2f2;
+            border:1px solid #ffd2d2;
+            color:#c62828;
+        }
+        .alert-ok{
+            background:#f3fff1;
+            border:1px solid #d7f4cf;
+            color:#2e7d32;
+        }
+        ul{ margin:6px 0 0 18px; }
+    </style>
+</head>
+
+<body>
+    <div class="topbar">
+        Admin
+        <div class="right">
+            <div class="avatar"></div>
+            <span>Thu Huynh ▾</span>
+        </div>
+    </div>
+
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="logo-dot"></div>
+                <b>OrangeHRM</b>
+            </div>
+
+            <nav class="menu">
+                <a class="active" href="#"><span class="dot"></span> Admin</a>
+                <a href="#"><span class="dot"></span> PIM</a>
+                <a href="#"><span class="dot"></span> Leave</a>
+                <a href="#"><span class="dot"></span> Time</a>
+                <a href="#"><span class="dot"></span> Recruitment</a>
+                <a href="#"><span class="dot"></span> My Info</a>
+                <a href="#"><span class="dot"></span> Performance</a>
+                <a href="#"><span class="dot"></span> Dashboard</a>
+                <a href="#"><span class="dot"></span> Directory</a>
+                <a href="#"><span class="dot"></span> Maintenance</a>
+                <a href="#"><span class="dot"></span> Buzz</a>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <div class="card">
+                <div class="card-head">
+                    <h2 class="card-title">Add Organization Unit</h2>
+                </div>
+
+                @if (errs != null && errs.Count > 0)
+                {
+                    <div class="alert alert-error">
+                        <b>Validation error</b>
+                        <ul>
+                            @foreach (var e in errs) { <li>@e</li> }
+                        </ul>
+                    </div>
+                }
+
+                @if (ViewBag.Ok != null)
+                {
+                    <div class="alert alert-ok">@ViewBag.Ok</div>
+                }
+
+                <form method="post">
+                    <div class="card-body">
+                        <div class="field">
+                            <label class="label">Unit Id</label>
+                            <input class="input" name="unitId" />
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Name<span class="req">*</span></label>
+                            <input class="input" name="name" />
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Description</label>
+                            <textarea class="textarea" name="description" placeholder="Type description here"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="hint-line">
+                        This unit will be added under <b>Organization</b>
+                    </div>
+
+                    <div class="card-foot">
+                        <div class="required"><span class="req">*</span> Required</div>
+                        <div class="actions">
+                            <button class="btn btn-cancel" type="reset">Cancel</button>
+                            <button class="btn btn-save" type="submit">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
