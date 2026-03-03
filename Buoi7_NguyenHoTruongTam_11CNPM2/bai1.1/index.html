@@ -1,0 +1,261 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Đăng ký - ShopVN</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#4e73df,#1cc88a);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Card */
+.container {
+    width: 380px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* Title */
+h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+/* Form */
+.form-group {
+    margin-bottom: 10px;
+}
+
+label {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    display: block;
+}
+
+/* Inputs */
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=date] {
+    width: 100%;
+    padding: 7px;
+    font-size: 13px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: #4e73df;
+    outline: none;
+    box-shadow: 0 0 5px rgba(78,115,223,0.3);
+}
+
+/* Radio inline */
+.radio-group {
+    display: flex;
+    gap: 10px;
+    font-size: 13px;
+}
+
+/* Checkbox */
+.checkbox-group {
+    font-size: 13px;
+}
+
+/* Error */
+.error {
+    color: red;
+    font-size: 11px;
+    display: none;
+    margin-top: 3px;
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    background: #4e73df;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #2e59d9;
+}
+
+button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Link */
+.login-link {
+    display: block;
+    text-align: center;
+    margin-top: 8px;
+    font-size: 13px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h2>Đăng Ký Tài Khoản</h2>
+
+<form id="registerForm">
+
+<div class="form-group">
+<label>Họ và tên (*)</label>
+<input type="text" id="fullname" required pattern="^[A-Za-zÀ-ỹ\s]{2,50}$">
+</div>
+
+<div class="form-group">
+<label>Tên đăng nhập (*)</label>
+<input type="text" id="username" required pattern="^[a-z][a-z0-9_]{4,19}$">
+<span class="error" id="user_error">Username đã tồn tại!</span>
+</div>
+
+<div class="form-group">
+<label>Email (*)</label>
+<input type="email" id="email" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$">
+<span class="error" id="email_error">Email đã tồn tại!</span>
+</div>
+
+<div class="form-group">
+<label>Số điện thoại (*)</label>
+<input type="text" id="phone" required pattern="^0[0-9]{9}$">
+</div>
+
+<div class="form-group">
+<label>Mật khẩu (*)</label>
+<input type="password" id="password" required
+pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,32}$">
+</div>
+
+<div class="form-group">
+<label>Xác nhận mật khẩu (*)</label>
+<input type="password" id="confirm_password" required>
+<span class="error" id="pwd_error">Mật khẩu không khớp!</span>
+</div>
+
+<div class="form-group">
+<label>Ngày sinh</label>
+<input type="date" id="dob">
+<span class="error" id="age_error">Tuổi phải từ 16 đến dưới 100!</span>
+</div>
+
+<div class="form-group">
+<label>Giới tính</label>
+<div class="radio-group">
+<input type="radio" name="gender" value="Nam"> Nam
+<input type="radio" name="gender" value="Nu"> Nữ
+<input type="radio" name="gender" value="Khac"> Không tiết lộ
+</div>
+</div>
+
+<div class="form-group">
+<label>Mã giới thiệu</label>
+<input type="text" id="ref_code" pattern="^[A-Z0-9]{8}$">
+<span class="error" id="ref_error">Mã không tồn tại!</span>
+</div>
+
+<div class="form-group checkbox-group">
+<input type="checkbox" id="terms" required> Tôi đồng ý
+<a href="#" id="term_link">Điều khoản</a> (*)
+</div>
+
+<button type="submit" id="btnSubmit" disabled>Đăng ký</button>
+<a href="#login" class="login-link">Đăng nhập</a>
+
+</form>
+</div>
+
+<script>
+const form = document.getElementById("registerForm");
+const btnSubmit = document.getElementById("btnSubmit");
+
+const existingUsers = ["admin01","user_test"];
+const existingEmails = ["admin@gmail.com","test@gmail.com"];
+const validRefCodes = ["ABC12345","SHOP2024"];
+
+const pwd = document.getElementById("password");
+const confirmPwd = document.getElementById("confirm_password");
+const dob = document.getElementById("dob");
+
+form.addEventListener("input", function(){
+
+let valid = form.checkValidity();
+let pwdMatch = pwd.value === confirmPwd.value;
+
+document.getElementById("pwd_error").style.display =
+(!pwdMatch && confirmPwd.value !== "") ? "block" : "none";
+
+let ageValid = true;
+if(dob.value){
+let birth = new Date(dob.value);
+let today = new Date();
+let age = today.getFullYear() - birth.getFullYear();
+let m = today.getMonth() - birth.getMonth();
+if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) age--;
+
+if(age < 16 || age >= 100){
+ageValid = false;
+document.getElementById("age_error").style.display="block";
+}else{
+document.getElementById("age_error").style.display="none";
+}
+}
+
+let userValid = !existingUsers.includes(username.value);
+document.getElementById("user_error").style.display = userValid ? "none" : "block";
+
+let emailValid = !existingEmails.includes(email.value);
+document.getElementById("email_error").style.display = emailValid ? "none" : "block";
+
+let refValid = true;
+if(ref_code.value !== "" && !validRefCodes.includes(ref_code.value)){
+refValid=false;
+document.getElementById("ref_error").style.display="block";
+}else{
+document.getElementById("ref_error").style.display="none";
+}
+
+btnSubmit.disabled = !(valid && pwdMatch && ageValid && userValid && emailValid && refValid);
+
+});
+
+document.getElementById("term_link").addEventListener("click", function(e){
+e.preventDefault();
+alert("Nội dung điều khoản sử dụng...");
+});
+
+form.addEventListener("submit", function(e){
+e.preventDefault();
+alert("Đăng ký thành công!");
+});
+</script>
+
+</body>
+</html>
