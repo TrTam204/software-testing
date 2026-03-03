@@ -1,0 +1,4 @@
+dtm\pages\InventoryPage.class
+dtm\pages\CheckoutStepTwoPage.class
+dtm\tests\TC_GioHangTest.class
+dtm\base\BaseTest.class

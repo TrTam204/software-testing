@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-03-03T18:54:56 ICT" name="CartSuite" finished-at="2026-03-03T18:55:01 ICT" duration-ms="5061">
+    <groups>
+      <group name="regression">
+        <method signature="TC_GioHangTest.kiemTraTongTien()[pri:0, instance:dtm.tests.TC_GioHangTest@2ef3eef9]" name="kiemTraTongTien" class="dtm.tests.TC_GioHangTest"/>
+      </group> <!-- regression -->
+    </groups>
+    <test started-at="2026-03-03T18:54:56 ICT" name="CartTests" finished-at="2026-03-03T18:55:01 ICT" duration-ms="5061">
+      <class name="dtm.tests.TC_GioHangTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:dtm.tests.TC_GioHangTest@2ef3eef9]" started-at="2026-03-03T18:54:56 ICT" name="setUp" finished-at="2026-03-03T18:54:59 ICT" duration-ms="2860" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="kiemTraTongTien()[pri:0, instance:dtm.tests.TC_GioHangTest@2ef3eef9]" started-at="2026-03-03T18:54:59 ICT" name="kiemTraTongTien" description="TC_CART_010: Kiá»ƒm tra tá»•ng tiá»�n chĂ­nh xĂ¡c" finished-at="2026-03-03T18:55:01 ICT" duration-ms="1963" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- kiemTraTongTien -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:dtm.tests.TC_GioHangTest@2ef3eef9]" started-at="2026-03-03T18:55:01 ICT" name="tearDown" finished-at="2026-03-03T18:55:01 ICT" duration-ms="194" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- dtm.tests.TC_GioHangTest -->
+    </test> <!-- CartTests -->
+  </suite> <!-- CartSuite -->
+</testng-results>

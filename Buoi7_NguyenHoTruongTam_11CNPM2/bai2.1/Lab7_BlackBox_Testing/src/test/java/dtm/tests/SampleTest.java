@@ -1,4 +1,4 @@
-﻿package dtm.tests;
+package dtm.tests;
 
 import dtm.base.BaseTest;
 import org.testng.annotations.Test;
