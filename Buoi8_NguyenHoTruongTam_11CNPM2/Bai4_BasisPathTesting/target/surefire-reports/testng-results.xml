@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="16" passed="16" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-03-10T17:36:34 ICT" name="Surefire suite" finished-at="2026-03-10T17:36:35 ICT" duration-ms="137">
+    <groups>
+    </groups>
+    <test started-at="2026-03-10T17:36:34 ICT" name="Surefire test" finished-at="2026-03-10T17:36:35 ICT" duration-ms="137">
+      <class name="lab4.TinhPhiShipTest">
+        <test-method signature="TC1_invalidWeight()[pri:0, instance:lab4.TinhPhiShipTest@1a84f40f]" started-at="2026-03-10T17:36:35 ICT" name="TC1_invalidWeight" finished-at="2026-03-10T17:36:35 ICT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC1_invalidWeight -->
+        <test-method signature="TC2_noiThanh_nhoHon5()[pri:0, instance:lab4.TinhPhiShipTest@1a84f40f]" started-at="2026-03-10T17:36:35 ICT" name="TC2_noiThanh_nhoHon5" finished-at="2026-03-10T17:36:35 ICT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC2_noiThanh_nhoHon5 -->
+        <test-method signature="TC3_noiThanh_lonHon5()[pri:0, instance:lab4.TinhPhiShipTest@1a84f40f]" started-at="2026-03-10T17:36:35 ICT" name="TC3_noiThanh_lonHon5" finished-at="2026-03-10T17:36:35 ICT" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC3_noiThanh_lonHon5 -->
+        <test-method signature="TC4_ngoaiThanh_nhoHon3()[pri:0, instance:lab4.TinhPhiShipTest@1a84f40f]" started-at="2026-03-10T17:36:35 ICT" name="TC4_ngoaiThanh_nhoHon3" finished-at="2026-03-10T17:36:35 ICT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC4_ngoaiThanh_nhoHon3 -->
+        <test-method signature="TC5_ngoaiThanh_lonHon3()[pri:0, instance:lab4.TinhPhiShipTest@1a84f40f]" started-at="2026-03-10T17:36:35 ICT" name="TC5_ngoaiThanh_lonHon3" finished-at="2026-03-10T17:36:35 ICT" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC5_ngoaiThanh_lonHon3 -->
+        <test-method signature="TC6_tinhKhac()[pri:0, instance:lab4.TinhPhiShipTest@1a84f40f]" started-at="2026-03-10T17:36:35 ICT" name="TC6_tinhKhac" finished-at="2026-03-10T17:36:35 ICT" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC6_tinhKhac -->
+        <test-method signature="TC7_tinhKhac_lonHon2()[pri:0, instance:lab4.TinhPhiShipTest@1a84f40f]" started-at="2026-03-10T17:36:35 ICT" name="TC7_tinhKhac_lonHon2" finished-at="2026-03-10T17:36:35 ICT" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC7_tinhKhac_lonHon2 -->
+        <test-method signature="TC8_member_discount()[pri:0, instance:lab4.TinhPhiShipTest@1a84f40f]" started-at="2026-03-10T17:36:35 ICT" name="TC8_member_discount" finished-at="2026-03-10T17:36:35 ICT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC8_member_discount -->
+      </class> <!-- lab4.TinhPhiShipTest -->
+      <class name="lab4.PhiShipBasisPathTest">
+        <test-method signature="testPath1_InvalidWeight()[pri:0, instance:lab4.PhiShipBasisPathTest@548a102f]" started-at="2026-03-10T17:36:35 ICT" name="testPath1_InvalidWeight" description="Path 1: Trá»�ng lÆ°á»£ng khĂ´ng há»£p lá»‡" finished-at="2026-03-10T17:36:35 ICT" duration-ms="15" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testPath1_InvalidWeight -->
+        <test-method signature="testPath2_NoiThanhNheKhongMember()[pri:0, instance:lab4.PhiShipBasisPathTest@548a102f]" started-at="2026-03-10T17:36:35 ICT" name="testPath2_NoiThanhNheKhongMember" description="Path 2: Ná»™i thĂ nh, &lt;=5kg, khĂ´ng member" finished-at="2026-03-10T17:36:35 ICT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testPath2_NoiThanhNheKhongMember -->
+        <test-method signature="testPath3_NoiThanhNangKhongMember()[pri:0, instance:lab4.PhiShipBasisPathTest@548a102f]" started-at="2026-03-10T17:36:35 ICT" name="testPath3_NoiThanhNangKhongMember" description="Path 3: Ná»™i thĂ nh, &gt;5kg, khĂ´ng member" finished-at="2026-03-10T17:36:35 ICT" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testPath3_NoiThanhNangKhongMember -->
+        <test-method signature="testPath4_NgoaiThanhNhe()[pri:0, instance:lab4.PhiShipBasisPathTest@548a102f]" started-at="2026-03-10T17:36:35 ICT" name="testPath4_NgoaiThanhNhe" description="Path 4: Ngoáº¡i thĂ nh, &lt;=3kg" finished-at="2026-03-10T17:36:35 ICT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testPath4_NgoaiThanhNhe -->
+        <test-method signature="testPath5_NgoaiThanhNang()[pri:0, instance:lab4.PhiShipBasisPathTest@548a102f]" started-at="2026-03-10T17:36:35 ICT" name="testPath5_NgoaiThanhNang" description="Path 5: Ngoáº¡i thĂ nh, &gt;3kg" finished-at="2026-03-10T17:36:35 ICT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testPath5_NgoaiThanhNang -->
+        <test-method signature="testPath6_TinhKhacNhe()[pri:0, instance:lab4.PhiShipBasisPathTest@548a102f]" started-at="2026-03-10T17:36:35 ICT" name="testPath6_TinhKhacNhe" description="Path 6: Tá»‰nh khĂ¡c, &lt;=2kg" finished-at="2026-03-10T17:36:35 ICT" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testPath6_TinhKhacNhe -->
+        <test-method signature="testPath7_TinhKhacNang()[pri:0, instance:lab4.PhiShipBasisPathTest@548a102f]" started-at="2026-03-10T17:36:35 ICT" name="testPath7_TinhKhacNang" description="Path 7: Tá»‰nh khĂ¡c, &gt;2kg" finished-at="2026-03-10T17:36:35 ICT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testPath7_TinhKhacNang -->
+        <test-method signature="testPath8_MemberDiscount()[pri:0, instance:lab4.PhiShipBasisPathTest@548a102f]" started-at="2026-03-10T17:36:35 ICT" name="testPath8_MemberDiscount" description="Path 8: Ná»™i thĂ nh, member giáº£m giĂ¡" finished-at="2026-03-10T17:36:35 ICT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testPath8_MemberDiscount -->
+      </class> <!-- lab4.PhiShipBasisPathTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>

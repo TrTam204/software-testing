@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="12" passed="12" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-03-10T16:00:27 ICT" name="Surefire suite" finished-at="2026-03-10T16:00:28 ICT" duration-ms="120">
+    <groups>
+    </groups>
+    <test started-at="2026-03-10T16:00:27 ICT" name="Surefire test" finished-at="2026-03-10T16:00:28 ICT" duration-ms="120">
+      <class name="lab3.XepLoaiTest">
+        <test-method signature="TC1_InvalidScore()[pri:0, instance:lab3.XepLoaiTest@5af97850]" started-at="2026-03-10T16:00:27 ICT" name="TC1_InvalidScore" finished-at="2026-03-10T16:00:27 ICT" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC1_InvalidScore -->
+        <test-method signature="TC2_Gioi()[pri:0, instance:lab3.XepLoaiTest@5af97850]" started-at="2026-03-10T16:00:27 ICT" name="TC2_Gioi" finished-at="2026-03-10T16:00:27 ICT" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC2_Gioi -->
+        <test-method signature="TC3_Kha()[pri:0, instance:lab3.XepLoaiTest@5af97850]" started-at="2026-03-10T16:00:27 ICT" name="TC3_Kha" finished-at="2026-03-10T16:00:27 ICT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC3_Kha -->
+        <test-method signature="TC4_TrungBinh()[pri:0, instance:lab3.XepLoaiTest@5af97850]" started-at="2026-03-10T16:00:27 ICT" name="TC4_TrungBinh" finished-at="2026-03-10T16:00:27 ICT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC4_TrungBinh -->
+        <test-method signature="TC5_ThiLai()[pri:0, instance:lab3.XepLoaiTest@5af97850]" started-at="2026-03-10T16:00:27 ICT" name="TC5_ThiLai" finished-at="2026-03-10T16:00:27 ICT" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC5_ThiLai -->
+        <test-method signature="TC6_YeuHocLai()[pri:0, instance:lab3.XepLoaiTest@5af97850]" started-at="2026-03-10T16:00:27 ICT" name="TC6_YeuHocLai" finished-at="2026-03-10T16:00:27 ICT" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC6_YeuHocLai -->
+      </class> <!-- lab3.XepLoaiTest -->
+      <class name="lab3.TinhTienNuocTest">
+        <test-method signature="TC1_soAm()[pri:0, instance:lab3.TinhTienNuocTest@12d3a4e9]" started-at="2026-03-10T16:00:27 ICT" name="TC1_soAm" finished-at="2026-03-10T16:00:27 ICT" duration-ms="25" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC1_soAm -->
+        <test-method signature="TC2_hoNgheo()[pri:0, instance:lab3.TinhTienNuocTest@12d3a4e9]" started-at="2026-03-10T16:00:27 ICT" name="TC2_hoNgheo" finished-at="2026-03-10T16:00:27 ICT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC2_hoNgheo -->
+        <test-method signature="TC3_danCuBac1()[pri:0, instance:lab3.TinhTienNuocTest@12d3a4e9]" started-at="2026-03-10T16:00:27 ICT" name="TC3_danCuBac1" finished-at="2026-03-10T16:00:27 ICT" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC3_danCuBac1 -->
+        <test-method signature="TC4_danCuBac2()[pri:0, instance:lab3.TinhTienNuocTest@12d3a4e9]" started-at="2026-03-10T16:00:27 ICT" name="TC4_danCuBac2" finished-at="2026-03-10T16:00:27 ICT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC4_danCuBac2 -->
+        <test-method signature="TC5_danCuBac3()[pri:0, instance:lab3.TinhTienNuocTest@12d3a4e9]" started-at="2026-03-10T16:00:27 ICT" name="TC5_danCuBac3" finished-at="2026-03-10T16:00:27 ICT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC5_danCuBac3 -->
+        <test-method signature="TC6_kinhDoanh()[pri:0, instance:lab3.TinhTienNuocTest@12d3a4e9]" started-at="2026-03-10T16:00:27 ICT" name="TC6_kinhDoanh" finished-at="2026-03-10T16:00:27 ICT" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC6_kinhDoanh -->
+      </class> <!-- lab3.TinhTienNuocTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
