@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-03-24T14:13:01 ICT" name="Surefire suite" finished-at="2026-03-24T14:13:07 ICT" duration-ms="5351">
+    <groups>
+    </groups>
+    <test started-at="2026-03-24T14:13:01 ICT" name="Surefire test" finished-at="2026-03-24T14:13:07 ICT" duration-ms="5351">
+      <class name="api.test.PostApiTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:api.test.PostApiTest@65d6b83b]" started-at="2026-03-24T14:13:01 ICT" name="setup" finished-at="2026-03-24T14:13:02 ICT" duration-ms="492" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="testCreatePost()[pri:0, instance:api.test.PostApiTest@65d6b83b]" started-at="2026-03-24T14:13:02 ICT" name="testCreatePost" finished-at="2026-03-24T14:13:05 ICT" duration-ms="3303" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCreatePost -->
+        <test-method signature="testDeletePost()[pri:0, instance:api.test.PostApiTest@65d6b83b]" started-at="2026-03-24T14:13:05 ICT" name="testDeletePost" finished-at="2026-03-24T14:13:06 ICT" duration-ms="453" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDeletePost -->
+        <test-method signature="testGetPost()[pri:0, instance:api.test.PostApiTest@65d6b83b]" started-at="2026-03-24T14:13:06 ICT" name="testGetPost" finished-at="2026-03-24T14:13:06 ICT" duration-ms="191" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetPost -->
+        <test-method signature="testUpdatePost()[pri:0, instance:api.test.PostApiTest@65d6b83b]" started-at="2026-03-24T14:13:06 ICT" name="testUpdatePost" finished-at="2026-03-24T14:13:07 ICT" duration-ms="869" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testUpdatePost -->
+      </class> <!-- api.test.PostApiTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>

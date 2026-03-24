@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-03-24T15:12:59 ICT" name="Surefire suite" finished-at="2026-03-24T15:13:06 ICT" duration-ms="7497">
+    <groups>
+    </groups>
+    <test started-at="2026-03-24T15:12:59 ICT" name="Surefire test" finished-at="2026-03-24T15:13:06 ICT" duration-ms="7497">
+      <class name="api.test.PerformanceTest">
+        <test-method signature="testMonitoring()[pri:0, instance:api.test.PerformanceTest@383bfa16]" started-at="2026-03-24T15:12:59 ICT" name="testMonitoring" finished-at="2026-03-24T15:13:03 ICT" duration-ms="4269" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testMonitoring -->
+        <test-method signature="testSLA(java.lang.String,java.lang.String,int)[pri:0, instance:api.test.PerformanceTest@383bfa16]" started-at="2026-03-24T15:13:03 ICT" name="testSLA" data-provider="apiData" finished-at="2026-03-24T15:13:04 ICT" duration-ms="426" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[GET]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://jsonplaceholder.typicode.com/users]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[2000]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSLA -->
+        <test-method signature="testSLA(java.lang.String,java.lang.String,int)[pri:0, instance:api.test.PerformanceTest@383bfa16]" started-at="2026-03-24T15:13:04 ICT" name="testSLA" data-provider="apiData" finished-at="2026-03-24T15:13:04 ICT" duration-ms="188" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[GET]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://jsonplaceholder.typicode.com/users/2]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[1500]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSLA -->
+        <test-method signature="testSLA(java.lang.String,java.lang.String,int)[pri:0, instance:api.test.PerformanceTest@383bfa16]" started-at="2026-03-24T15:13:04 ICT" name="testSLA" data-provider="apiData" finished-at="2026-03-24T15:13:04 ICT" duration-ms="397" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[POST]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://jsonplaceholder.typicode.com/users]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[3000]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSLA -->
+        <test-method signature="testSLA(java.lang.String,java.lang.String,int)[pri:0, instance:api.test.PerformanceTest@383bfa16]" started-at="2026-03-24T15:13:04 ICT" name="testSLA" data-provider="apiData" finished-at="2026-03-24T15:13:05 ICT" duration-ms="850" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[POST]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://jsonplaceholder.typicode.com/posts]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[2000]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSLA -->
+        <test-method signature="testSLA(java.lang.String,java.lang.String,int)[pri:0, instance:api.test.PerformanceTest@383bfa16]" started-at="2026-03-24T15:13:05 ICT" name="testSLA" data-provider="apiData" finished-at="2026-03-24T15:13:06 ICT" duration-ms="833" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[DELETE]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://jsonplaceholder.typicode.com/users/2]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[1000]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSLA -->
+      </class> <!-- api.test.PerformanceTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>

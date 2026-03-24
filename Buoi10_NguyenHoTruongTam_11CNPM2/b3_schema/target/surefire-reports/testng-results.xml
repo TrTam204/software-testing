@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-03-24T14:30:55 ICT" name="Surefire suite" finished-at="2026-03-24T14:30:58 ICT" duration-ms="2970">
+    <groups>
+    </groups>
+    <test started-at="2026-03-24T14:30:55 ICT" name="Surefire test" finished-at="2026-03-24T14:30:58 ICT" duration-ms="2970">
+      <class name="api.test.SchemaTest">
+        <test-method signature="testSchemaPost()[pri:0, instance:api.test.SchemaTest@70be0a2b]" started-at="2026-03-24T14:30:55 ICT" name="testSchemaPost" finished-at="2026-03-24T14:30:58 ICT" duration-ms="2919" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSchemaPost -->
+      </class> <!-- api.test.SchemaTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
